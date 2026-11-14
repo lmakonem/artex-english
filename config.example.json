@@ -1,0 +1,23 @@
+{
+  "_comment": "Copy to config.json (or point the ARTEX_CONFIG environment variable at another path). This file holds only database and skill_dir; other config such as LLM settings comes from environment variables or in-app settings, not this file.",
+
+  "_comment_database": "PostgreSQL connection. Priority: environment variable ARTEX_PG_DSN > this file's database. Pick one of two forms: (A) fill in the individual fields below; (B) set a single complete connection string in database.dsn.",
+  "database": {
+    "host": "127.0.0.1",
+    "port": 5433,
+    "user": "artex",
+    "password": "",
+    "dbname": "artex",
+    "sslmode": "disable"
+  },
+
+  "_comment_database_dsn": "Form (B): delete the database block above and use a complete DSN instead. When dsn is non-empty, the individual fields are ignored.",
+  "_example_database_dsn": {
+    "database": {
+      "dsn": "postgres://user:pass@db.example.com:5432/artex?sslmode=require"
+    }
+  },
+
+  "_comment_skill_dir": "skill root directory (one skill per subdirectory, each with a SKILL.md). Priority: environment variable ARTEX_SKILL_DIR > this field > default (skills/ next to the executable). Leave empty or delete this field to use the default. Relative paths are resolved against the current working directory.",
+  "skill_dir": "/opt/artex/skills"
+}
